@@ -1,6 +1,5 @@
 const products=[
     {
-        _id: '1',
         name: 'airpod',
         image: '/images/airpods.jpg',
         des: 'fuck apple',
@@ -13,7 +12,6 @@ const products=[
         description:"Really good"
     },
     {
-        _id: '2',
         name: 'alexa',
         image: '/images/alexa.jpg',
         des: 'fuck apple',
@@ -25,7 +23,6 @@ const products=[
         numReviews: 4
     },
     {
-        _id: '3',
         name: 'camera',
         image: '/images/camera.jpg',
         des: 'fuck apple',
@@ -37,7 +34,6 @@ const products=[
         numReviews: 4
     },
     {
-        _id: '4',
         name: 'mouse',
         image: '/images/mouse.jpg',
         des: 'fuck apple',
@@ -49,7 +45,6 @@ const products=[
         numReviews: 4
     },
     {
-        _id: '5',
         name: 'phone',
         image: '/images/phone.jpg',
         des: 'fuck apple',
@@ -61,7 +56,6 @@ const products=[
         numReviews: 4
     },
     {
-        _id: '6',
         name: 'playstation',
         image: '/images/playstation.jpg',
         des: 'fuck apple',
