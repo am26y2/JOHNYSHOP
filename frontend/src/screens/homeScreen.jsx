@@ -1,27 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import Product from "./../components/product";
-import { listProducts } from "./../actions/productActions";
+import Product from "../components/Product";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
+import axios from 'axios';
 const HomeScreen = () => {
-  const dispatch = useDispatch();
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
-  useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
+  const [loading,setLoading ]=useState(false);
+  const [products,setProducts]=useState([])
+  useEffect(()=>{
+    setLoading(true);
+    const fetchProduct=async ()=>{
+      const {data}=await axios.get('./api/products')
+      setProducts(data)
+      setLoading(false)
+    }
+    fetchProduct()
+  },[])
+
   return (
     <>
       <h1>Latest Products</h1>
       {loading ? (
-        <h1>Loading...</h1>
-      ) : error ? (
-        <h3>{error}</h3>
+        <Loader />
       ) : (
         <Row>
-          {products.map((product) => (
+          {products.map((el) => (
             <Col sm={12} lg={4} xl={3}>
-              <Product product={product} />
+              <Product product={el} />
+              {console.log(el)}
             </Col>
           ))}
         </Row>
