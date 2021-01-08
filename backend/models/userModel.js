@@ -1,26 +1,33 @@
-const mongoose=require('mongoose')
-
-const userSchema=mongoose.Schema({
-    name:{
-        type: String,
-        required: true
+const mongoose = require("mongoose");
+const bcrpt = require("bcryptjs");
+const userSchema = mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
     },
-    email:{
-        type: String,
-        required: true,
-        unique: true
+    email: {
+      type: String,
+      required: true,
+      unique: true,
     },
-    password:{
-        type: String,
-        required: true
+    password: {
+      type: String,
+      required: true,
     },
     isAdmin: {
-        type: Boolean,
-        required: true,
-        default: false
-    }
-}, { timestamps: true })
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+  },
+  { timestamps: true }
+);
 
-const User=mongoose.model('User',userSchema);
+userSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrpt.compare(enteredPassword, this.password);
+};
 
-module.exports=User;
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;

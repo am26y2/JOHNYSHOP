@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
-import Loader from "../components/Loader";
-import Message from "../components/Message";
 import axios from 'axios';
 const HomeScreen = () => {
   const [loading,setLoading ]=useState(false);
@@ -21,7 +19,7 @@ const HomeScreen = () => {
     <>
       <h1>Latest Products</h1>
       {loading ? (
-        <Loader />
+        <h1>Loading...</h1>
       ) : (
         <Row>
           {products.map((el) => (
@@ -35,5 +33,4 @@ const HomeScreen = () => {
     </>
   );
 };
-
 export default HomeScreen;
