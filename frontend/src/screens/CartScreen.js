@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-bootstrap";
 import {
   Row,
   Col,
@@ -12,6 +11,7 @@ import {
 } from "react-bootstrap";
 import Message from "./../components/Message";
 import { addToCart } from "./../Actions/cartActions";
+import { Link } from "react-router-dom";
 const CartScreen = ({ match, location, history }) => {
   const productId = match.params.id;
   //   console.log(location);
@@ -29,6 +29,9 @@ const CartScreen = ({ match, location, history }) => {
     <Row>
       <Col md={8}>
           <h1>Shopping Cart</h1>
+          {cartItems.length===0?<Message>Your cart is empty<Link to='/'>Go Back</Link></Message>:(
+              <ListGroup varient='flush'></ListGroup>
+          )}
       </Col>
       <Col md={2}></Col>
       <Col md={2}></Col>
