@@ -5,16 +5,17 @@ import {BrowserRouter as Router, Route} from "react-router-dom"
 import { Container } from "react-bootstrap";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
-import SignIn from "./screens/SignIn";
+import CartScreen from "./screens/CartScreen";
 function App() {
   return (
     <Router>
       <Header />
       <main class Name="py-3">
         <Container>
-          {/* <Route exact path='/' component={SignIn}/> */}
-          <Route exact path={`/product/:id`} component={ProductScreen}/>
+          <Route  path={`/product/:id`} component={ProductScreen}/>
           <Route exact path='/' component={HomeScreen}/>
+          <Route  path='/cart/:id?' component={CartScreen}/>
+        
         </Container>
       </main>
       <Footer />
