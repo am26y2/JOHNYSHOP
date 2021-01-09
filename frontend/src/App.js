@@ -12,9 +12,9 @@ function App() {
       <Header />
       <main class Name="py-3">
         <Container>
-          <Route exact path='/' component={SignIn}/>
+          {/* <Route exact path='/' component={SignIn}/> */}
           <Route exact path={`/product/:id`} component={ProductScreen}/>
-          <Route exact path='/home' component={HomeScreen}/>
+          <Route exact path='/' component={HomeScreen}/>
         </Container>
       </main>
       <Footer />
