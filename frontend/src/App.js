@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <main class Name="py-3">
+      <main className="py-3">
         <Container>
           <Route  path={`/product/:id`} component={ProductScreen}/>
           <Route exact path='/' component={HomeScreen}/>
